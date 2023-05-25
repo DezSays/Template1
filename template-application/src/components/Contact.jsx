@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Container, Form, Button, Alert } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,13 +19,13 @@ const Contact = () => {
     }, 2000);
 
     // Reset form fields
-    setName('');
-    setEmail('');
-    setMessage('');
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   const handleReturnHome = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -34,18 +34,21 @@ const Contact = () => {
         <h2 className="contact-header">Contact Us</h2>
         {submitted ? (
           <div id="submitted-message-container">
-          <Alert variant="success" className="message-alert">
-            <div className="message-text">
-              We have received your message. Thank you for your input!
-            </div>
-            <div className="message-button">
-              <Button variant="secondary" onClick={handleReturnHome} className="submit-button">
-                Return Home
-              </Button>
-            </div>
-          </Alert>
-        </div>
-        
+            <Alert variant="success" className="message-alert">
+              <div className="message-text">
+                We have received your message. Thank you for your input!
+              </div>
+              <div className="message-button">
+                <Button
+                  variant="secondary"
+                  onClick={handleReturnHome}
+                  className="submit-button"
+                >
+                  Return Home
+                </Button>
+              </div>
+            </Alert>
+          </div>
         ) : (
           <Form onSubmit={handleSubmit} className="contact-form">
             <Form.Group controlId="name">
@@ -82,8 +85,12 @@ const Contact = () => {
               />
             </Form.Group>
 
-            <div style={{ textAlign: 'right' }}>
-              <Button variant="secondary" type="submit" className="submit-button">
+            <div style={{ textAlign: "right" }}>
+              <Button
+                variant="secondary"
+                type="submit"
+                className="submit-button"
+              >
                 Submit
               </Button>
             </div>
